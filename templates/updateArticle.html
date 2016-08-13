@@ -1,0 +1,16 @@
+<form action="/api/article/update" method="POST">
+    <label>Id</label>
+    <input type="text" name="id" value="{{article.id}}"/>
+    <br/>
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Title" value="{{article.title}}"/>
+    <br/>
+    <label>HTML Id</label>
+    <input type="text" name="htmlId" value="{{article.htmlId}}"/>
+    <br/>
+    <label>Body</label/>
+    <textarea name="body" cols="20" rows="5">{{article.body}}</textarea>
+    </br>
+    <input type="submit" name="create" value="Go!!!"/>
+    <input type="reset" name="reset" value="reset me"/>
+</form>

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h3>Kucera Application</h3>
+	<a href="/api/article/viewAll">View all articles</a>
+	<br>
+	<a href="/api/article/create">Create a new article</a>
+	<br>
+	<a href="/api/article/title/findById/1">Find first article title by id</a>
+	<br>
+	<a href="/api/article/title/findByHtmlId/id1">Find first article title by htmlId</a>
+	<br>
+	<a href="/api/article/body/findById/1">Find first article body by id</a>
+	<br>
+	<a href="/api/article/body/findByHtmlId/id1">Find first article body by htmlId</a>
+	<br>
+	<a href="/api/article/findForUpdate/1">Update first article</a>
+{% endblock %}
+	
