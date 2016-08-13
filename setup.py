@@ -6,5 +6,6 @@ setup(name='kucera server api',
       author='oggo',
       author_email='oggokoko@gmail.com',
       url='http://geekline.org',
+      install_requires=['Flask>=0.10.1'],
 #      install_requires=['Django>=1.3'],
      )
