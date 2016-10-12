@@ -9,7 +9,7 @@
     <input type="text" name="htmlId" value="{{article.htmlId}}"/>
     <br/>
     <label>Body</label/>
-    <textarea name="body" cols="20" rows="5">{{article.body}}</textarea>
+    <textarea name="body" cols="20" rows="5">{{article.body|replace('\\"', '\"')}}</textarea>
     </br>
     <input type="submit" name="create" value="Go!!!"/>
     <input type="reset" name="reset" value="reset me"/>
