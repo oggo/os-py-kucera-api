@@ -50,7 +50,7 @@ def createArticle():
   else:
     title= request.form["title"]
     htmlId= request.form["htmlId"]
-    body= request.form["body"].replace('\n', '<br/>').replace('\r', '')
+    body= request.form["body"].replace('\n', '<br/>').replace('\r', '').replace('"', '\\"')
     created= datetime.datetime.now()
     lastUpdated= datetime.datetime.now()
     article= Article(pTitle=title, pHtmlId=htmlId, pBody=body, pCreated=created, pLastUpdated=lastUpdated)
@@ -62,7 +62,6 @@ def createArticle():
 @app.route("/api/article/findForUpdate/<int:pId>")
 def findArticleForUpdate(pId):
   article= Article.query.get(pId)
-  #article.body.replace('<br/>', '\n')
   article.body= article.body.replace('<br/>', '\n')
   return render_template("updateArticle.html", article=article)
 
@@ -72,7 +71,7 @@ def updateArticle():
   article= Article.query.filter_by(id=localId).first()
   article.title= request.form["title"]
   article.htmlId= request.form["htmlId"]
-  article.body= request.form["body"].replace('\n', '<br/>').replace('\r', '')
+  article.body= request.form["body"].replace('\n', '<br/>').replace('\r', '').replace('"', '\\"')
   article.lastUpdated= datetime.datetime.now()
   db.session.commit()
   flash("Article successfully updated!")
