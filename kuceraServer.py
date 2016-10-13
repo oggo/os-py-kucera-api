@@ -66,7 +66,7 @@ def findArticleForUpdate(pId):
   return render_template("updateArticle.html", article=article)
 
 @app.route("/api/article/findForUpdateFull/<int:pId>")
-def findArticleForUpdate(pId):
+def findArticleForUpdateFull(pId):
   article= Article.query.get(pId)
   article.body= article.body.replace('<br/>', '\n')
   return render_template("updateArticleFull.html", article=article)
