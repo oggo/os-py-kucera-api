@@ -1,12 +1,12 @@
 <form action="/api/article/update" method="POST">
     <label>Id</label>
-    <input type="text" readonly name="id" value="{{article.id}}"/>
+    <input type="text" name="id" value="{{article.id}}"/>
     <br/>
     <label>Title</label>
     <input type="text" name="title" placeholder="Title" value="{{article.title}}"/>
     <br/>
     <label>HTML Id</label>
-    <input type="text" readonly name="htmlId" value="{{article.htmlId}}"/>
+    <input type="text" name="htmlId" value="{{article.htmlId}}"/>
     <br/>
     <label>Body</label/>
     <textarea name="body" cols="70" rows="25">{{article.body|replace('\\"', '\"')}}</textarea>

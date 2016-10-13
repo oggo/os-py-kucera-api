@@ -2,7 +2,7 @@ test! article[0].title: {{allArticle[0].title}}
 <br/>
 all article: 
 {% for article in allArticle %}
-    <p>id: {{article.id}} | title: {{article.title}} | htmlId: {{article.htmlId}} | <a href="/api/article/findForUpdate/{{article.id}}">update</a> | <a href="/api/article/deleteById/{{article.id}}">delete</a></p>
+    <p>id: {{article.id}} | title: {{article.title}} | htmlId: {{article.htmlId}} | <a href="/api/article/findForUpdateFull/{{article.id}}">update</a> | <a href="/api/article/deleteById/{{article.id}}">delete</a></p>
     <br/>
     <div>{{article.body}}</div>
 {% endfor %}
