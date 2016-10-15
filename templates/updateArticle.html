@@ -1,16 +1,210 @@
-<form action="/api/article/update" method="POST">
-    <label>Id</label>
-    <input type="text" readonly name="id" value="{{article.id}}"/>
-    <br/>
-    <label>Title</label>
-    <input type="text" name="title" placeholder="Title" value="{{article.title}}"/>
-    <br/>
-    <label>HTML Id</label>
-    <input type="text" readonly name="htmlId" value="{{article.htmlId}}"/>
-    <br/>
-    <label>Body</label/>
-    <textarea name="body" cols="70" rows="25">{{article.body|replace('\\"', '\"')}}</textarea>
-    </br>
-    <input type="submit" name="create" value="Go!!!"/>
-    <input type="reset" name="reset" value="reset me"/>
-</form>
+<!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="de-DE">
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2015.2.0.352"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["jquery-1.8.3.min.js", "museutils.js", "museconfig.js", "jquery.watch.js", "jquery.museresponsive.js", "require.js", "index.css"], "outOfDate":[]};
+</script>
+  
+  <title>KUCERA-Edit-M</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/css/site_global.css?crc=3939874511"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/master_a-musters.css?crc=18395299"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/index.css?crc=4042611849" id="pagesheet"/>
+  <!-- IE-only CSS -->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="/static/css/nomq_preview_master_a-musters.css?crc=3824530138"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/nomq_index.css?crc=361907753" id="nomq_pagesheet"/>
+  <![endif]-->
+   </head>
+ <body>
+
+  <div class="breakpoint active" id="bp_infinity" data-min-width="1025"><!-- responsive breakpoint node -->
+   <div class="clearfix borderbox" id="page"><!-- column -->
+    <div class="clearfix colelem shared_content" id="pu565" data-content-guid="pu565_content"><!-- group -->
+     <div class="browser_width" id="u565-bw">
+      <div id="u565" class="shared_content" data-content-guid="u565_content"><!-- simple frame --></div>
+     </div>
+     <a class="nonblock nontext clip_frame shared_content" id="u566" href="http://www.kucera.biz" data-content-guid="u566_content"><!-- image --><img class="block temp_no_img_src" id="u566_img" data-orig-src="/static/images/kucera_logo_4c_wei%c3%9f_kl.png?crc=251882098" alt="" width="99" height="57" src="/static/images/blank.gif?crc=4208392903"/></a>
+    </div>
+    <div class="clearfix colelem shared_content" id="u178-4" data-content-guid="u178-4_content"><!-- content -->
+     <p>Edit</p>
+    </div>
+    <div class="clearfix colelem shared_content" id="u304-6" data-content-guid="u304-6_content"><!-- content -->
+     <p><a class="nonblock" href="http://www.kucera.biz">www.kucera.biz</a> (TEST)</p>
+    </div>
+    <div class="clearfix colelem shared_content" id="u94-4" data-content-guid="u94-4_content"><!-- content -->
+     <p><span id="u94">&nbsp;Eingabe</span></p>
+    </div>
+    	<form action="/api/article/update" method="POST">
+		    <div class="clearfix colelem shared_content" id="pu1191-4" data-content-guid="pu1191-4_content"><!-- group -->
+		     <div class="clearfix grpelem shared_content" id="u1191-4" data-content-guid="u1191-4_content"><!-- content -->
+		      <p>&nbsp; ID py</p>
+		     </div>
+		     <div class="clearfix grpelem shared_content" id="u1198-4" data-content-guid="u1198-4_content"><!-- content -->
+		      <input type="text" readonly name="id" value="{{article.id}}"/>
+		     </div>
+		    </div>
+		    <div class="clearfix colelem shared_content" id="pu1240-4" data-content-guid="pu1240-4_content"><!-- group -->
+		     <div class="clearfix grpelem shared_content" id="u1240-4" data-content-guid="u1240-4_content"><!-- content -->
+		      <p>&nbsp; ID html</p>
+		     </div>
+		     <div class="clearfix grpelem shared_content" id="u1255-4" data-content-guid="u1255-4_content"><!-- content -->
+		      <input type="text" readonly name="htmlId" value="{{article.htmlId}}"/>
+		     </div>
+		    </div>
+		    <div class="clearfix colelem shared_content" id="pu1214-4" data-content-guid="pu1214-4_content"><!-- group -->
+		     <div class="clearfix grpelem shared_content" id="u1214-4" data-content-guid="u1214-4_content"><!-- content -->
+		      <p>&nbsp; Title</p>
+		     </div>
+		     <div class="clearfix grpelem shared_content" id="u1229-4" data-content-guid="u1229-4_content"><!-- content -->
+		      <input type="text" readonly name="title" placeholder="Title" value="{{article.title}}"/>
+		     </div>
+		    </div>
+		    <div class="clearfix colelem shared_content" id="pu1266-4" data-content-guid="pu1266-4_content"><!-- group -->
+		     <div class="clearfix grpelem shared_content" id="u1266-4" data-content-guid="u1266-4_content"><!-- content -->
+		      <p>&nbsp; Text</p>
+		     </div>
+		     <div class="clearfix grpelem shared_content" id="u1281-74" data-content-guid="u1281-74_content"><!-- content -->
+		     	<textarea name="body" cols="70" rows="25">{{article.body|replace('\\"', '\"')}}</textarea>
+		     </div>
+		    </div>
+		    <div class="clearfix colelem shared_content" id="pu1344-4" data-content-guid="pu1344-4_content"><!-- group -->
+		     <div class="clearfix grpelem shared_content" id="u1344-4" data-content-guid="u1344-4_content"><!-- content -->
+		      <input type="reset" name="reset" value="Reset"/>
+		     </div>
+		     <div class="clearfix grpelem shared_content" id="u1359-4" data-content-guid="u1359-4_content"><!-- content -->
+		      <input type="submit" name="update" value="Upload"/>
+		     </div>
+		    </div>
+			</form>
+    <div class="dddd-de clearfix colelem shared_content" id="u1370-5" data-content-guid="u1370-5_content"><!-- content -->
+     <p><a class="nonblock" href="http://www.dddd.de" target="_blank"><span id="u1370">© Design by Diana Ninov | www.dddd.de</span></a></p>
+    </div>
+    <div class="verticalspacer" data-offset-top="1497" data-content-above-spacer="1497" data-content-below-spacer="163"></div>
+    <div class="browser_width colelem" id="u1377-3-bw">
+     <div class="clearfix shared_content" id="u1377-3" data-content-guid="u1377-3_content"><!-- content -->
+      <p>&nbsp;</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="breakpoint" id="bp_1024" data-min-width="769" data-max-width="1024"><!-- responsive breakpoint node -->
+   <div class="clearfix borderbox temp_no_id" data-orig-id="page"><!-- column -->
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu565_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u178-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u304-6_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u94-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1191-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1240-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1214-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1266-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1344-4_content"><!-- placeholder node --></span>
+    <div class="browser_width temp_no_id" data-orig-id="u1377-3-bw">
+     <span class="clearfix pinned-colelem placeholder" data-placeholder-for="u1377-3_content"><!-- placeholder node --></span>
+    </div>
+    <span class="dddd-de clearfix colelem placeholder" data-placeholder-for="u1370-5_content"><!-- placeholder node --></span>
+    <div class="verticalspacer" data-offset-top="1734" data-content-above-spacer="1734" data-content-below-spacer="110"></div>
+   </div>
+  </div>
+  <div class="breakpoint" id="bp_768" data-min-width="481" data-max-width="768"><!-- responsive breakpoint node -->
+   <div class="clearfix borderbox temp_no_id" data-orig-id="page"><!-- column -->
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu565_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u178-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u304-6_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u94-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1191-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1240-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1214-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1266-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1344-4_content"><!-- placeholder node --></span>
+    <div class="browser_width temp_no_id" data-orig-id="u1377-3-bw">
+     <span class="clearfix pinned-colelem placeholder" data-placeholder-for="u1377-3_content"><!-- placeholder node --></span>
+    </div>
+    <span class="dddd-de clearfix colelem placeholder" data-placeholder-for="u1370-5_content"><!-- placeholder node --></span>
+    <div class="verticalspacer" data-offset-top="1706" data-content-above-spacer="1705" data-content-below-spacer="69"></div>
+   </div>
+  </div>
+  <div class="breakpoint" id="bp_480" data-min-width="321" data-max-width="480"><!-- responsive breakpoint node -->
+   <div class="clearfix borderbox temp_no_id" data-orig-id="page"><!-- column -->
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu565_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u178-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u304-6_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u94-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1191-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="pu1240-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u1214-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u1229-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u1266-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u1281-74_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u1359-4_content"><!-- placeholder node --></span>
+    <span class="clearfix colelem placeholder" data-placeholder-for="u1344-4_content"><!-- placeholder node --></span>
+    <div class="browser_width temp_no_id" data-orig-id="u1377-3-bw">
+     <span class="clearfix pinned-colelem placeholder" data-placeholder-for="u1377-3_content"><!-- placeholder node --></span>
+    </div>
+    <span class="dddd-de clearfix colelem placeholder" data-placeholder-for="u1370-5_content"><!-- placeholder node --></span>
+    <div class="verticalspacer" data-offset-top="1784" data-content-above-spacer="1783" data-content-below-spacer="144"></div>
+   </div>
+  </div>
+  <div class="breakpoint" id="bp_320" data-max-width="320"><!-- responsive breakpoint node -->
+   <div class="clearfix borderbox temp_no_id" data-orig-id="page"><!-- group -->
+    <div class="clearfix grpelem" id="pu1377-3"><!-- group -->
+     <div id="u1377-3-wrapper">
+      <span class="clearfix placeholder" data-placeholder-for="u1377-3_content"><!-- placeholder node --></span>
+     </div>
+     <div id="u565-wrapper">
+      <span class="placeholder" data-placeholder-for="u565_content"><!-- placeholder node --></span>
+     </div>
+    </div>
+    <div class="clearfix grpelem" id="pu178-4"><!-- column -->
+     <span class="clearfix colelem placeholder" data-placeholder-for="u178-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u94-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1191-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1240-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1214-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1229-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1266-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1281-74_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1359-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1344-4_content"><!-- placeholder node --></span>
+     <span class="dddd-de clearfix colelem placeholder" data-placeholder-for="u1370-5_content"><!-- placeholder node --></span>
+    </div>
+    <span class="nonblock nontext clip_frame placeholder" data-placeholder-for="u566_content"><!-- placeholder node --></span>
+    <div class="clearfix grpelem" id="pu304-6"><!-- column -->
+     <span class="clearfix colelem placeholder" data-placeholder-for="u304-6_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1198-4_content"><!-- placeholder node --></span>
+     <span class="clearfix colelem placeholder" data-placeholder-for="u1255-4_content"><!-- placeholder node --></span>
+    </div>
+    <div class="verticalspacer" data-offset-top="2081" data-content-above-spacer="2102" data-content-below-spacer="84"></div>
+   </div>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   window.Muse.assets.check=function(){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var a={},b=function(){$('link[type="text/css"]').each(function(){var b=($(this).attr("href")||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);b&&b[1]&&b[2]&&(a[b[1]]=b[2])})},c=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),16);return 0},d=function(d){if("undefined"!==
+typeof $){b();$("body").append('<div class="version" style="display:none; width:1px; height:1px;"></div>');for(var f=$(".version"),j=0;j<Muse.assets.required.length;){var h=Muse.assets.required[j],i=h.match(/([\w\-\.]+)\.(\w+)$/),k=i&&i[1]?i[1]:null,i=i&&i[2]?i[2]:null;switch(i.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.addClass(k);var i=c(f.css("color")),l=c(f.css("background-color"));i!=0||l!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof a[h]&&(i!=
+a[h]>>>24||l!=(a[h]&16777215))&&Muse.assets.outOfDate.push(h)):j++;f.removeClass(k);break;case "js":k.match(/^jquery-[\d\.]+/gi)&&typeof $!="undefined"?Muse.assets.required.splice(j,1):j++;break;default:throw Error("Unsupported file type: "+i);}}f.remove()}if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="Einige der Dateien auf dem Server fehlen oder sind ungültig. Löschen Sie den Browser-Cache und versuchen Sie es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an den Autor der Website.",d&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),d&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),
+alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?setTimeout(function(){d(!0)},5E3):d()}};
+var muse_init=function(){require.config({baseUrl:"/static"});require(["museutils","whatinput","jquery.watch","jquery.museresponsive"],function(){$(document).ready(function(){try{
+window.Muse.assets.check();/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.resizeHeight('.browser_width');/* resize height */
+Muse.Utils.requestAnimationFrame(function() { $('body').addClass('initialized'); });/* mark body as initialized */
+Muse.Utils.fullPage('#page');/* 100% height page */
+$( '.breakpoint' ).registerBreakpoint();/* Register breakpoints */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(a){if(a&&"function"==typeof a.notify?a.notify():Muse.Assert.fail("Error calling selector function: "+a),false)throw a;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="scripts/require.js?crc=228336483" type="text/javascript" async data-main="scripts/museconfig.js?crc=328327953" onload="requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
+</html>
