@@ -80,8 +80,9 @@ def updateArticle():
   article.body= request.form["body"].replace('\n', '<br/>').replace('\r', '').replace('"', '\\"')
   article.lastUpdated= datetime.datetime.now()
   db.session.commit()
-  flash("Article successfully updated!")
-  return redirect("/")
+  flash("Die Daten wurden erfolgreich hochgeladen!")
+  #return redirect("/")
+  return render_template("updateArticle.html", article=article)
 
 @app.route('/api/article/deleteById/<int:pId>')
 def deleteArticleTitleById(pId):

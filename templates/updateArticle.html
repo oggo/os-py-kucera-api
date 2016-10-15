@@ -79,12 +79,21 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 		    </div>
 		    <div class="clearfix colelem shared_content" id="pu1344-4" data-content-guid="pu1344-4_content"><!-- group -->
 		     <div class="clearfix grpelem shared_content" id="u1344-4" data-content-guid="u1344-4_content"><!-- content -->
-		      <input type="reset" name="reset" value="Reset"/>
+		      <input type="reset" name="reset" style="background-color:#7f7f7f" value="Reset"/>
 		     </div>
 		     <div class="clearfix grpelem shared_content" id="u1359-4" data-content-guid="u1359-4_content"><!-- content -->
-		      <input type="submit" name="update" value="Upload"/>
+		      <input type="submit" name="update" style="background-color:#996600" value="Upload"/>
 		     </div>
 		    </div>
+				{% with messages = get_flashed_messages() %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li>{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
 			</form>
     <div class="dddd-de clearfix colelem shared_content" id="u1370-5" data-content-guid="u1370-5_content"><!-- content -->
      <p><a class="nonblock" href="http://www.dddd.de" target="_blank"><span id="u1370">© Design by Diana Ninov | www.dddd.de</span></a></p>
