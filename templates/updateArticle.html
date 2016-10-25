@@ -41,6 +41,21 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
     <div class="clearfix colelem shared_content" id="u304-6" data-content-guid="u304-6_content"><!-- content -->
      <p><a class="nonblock" href="http://www.kucera.biz">www.kucera.biz</a> (TEST)</p>
     </div>
+				{% with messages = get_flashed_messages() %}
+				  {% if messages %}
+     <div class="clearfix colelem" id="pu1444-4"><!-- group -->
+      <div class="clearfix grpelem shared_content" id="u1444-4" data-content-guid="u1444-4_content"><!-- content -->
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+      </div>
+      <div class="clearfix grpelem shared_content" id="u1445-4" data-content-guid="u1445-4_content"><!-- content -->
+				    {% for message in messages %}
+       <p>{{ message }}</p>
+				    {% endfor %}
+      </div>
+     </div>
+				  {% endif %}
+				{% endwith %}
     <div class="clearfix colelem shared_content" id="u94-4" data-content-guid="u94-4_content"><!-- content -->
      <p><span id="u94">&nbsp;Eingabe</span></p>
     </div>
@@ -85,15 +100,6 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 		      <input type="submit" name="update" style="color:#ffffff; background-color:#996600" value=" Upload"/>
 		     </div>
 		    </div>
-				{% with messages = get_flashed_messages() %}
-				  {% if messages %}
-				    <ul class=flashes>
-				    {% for message in messages %}
-				      <li>{{ message }}</li>
-				    {% endfor %}
-				    </ul>
-				  {% endif %}
-				{% endwith %}
 			</form>
     <div class="dddd-de clearfix colelem shared_content" id="u1370-5" data-content-guid="u1370-5_content"><!-- content -->
      <p><a class="nonblock" href="http://www.dddd.de" target="_blank"><span id="u1370">© Design by Diana Ninov | www.dddd.de</span></a></p>
