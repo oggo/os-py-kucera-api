@@ -218,8 +218,16 @@ $( '.breakpoint' ).registerBreakpoint();/* Register breakpoints */
 Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
 }catch(a){if(a&&"function"==typeof a.notify?a.notify():Muse.Assert.fail("Error calling selector function: "+a),false)throw a;}})})};
 
-</script>
+  </script>
   <!-- RequireJS script -->
   <script src="/static/scripts/require.js?crc=228336483" type="text/javascript" async data-main="/static/scripts/museconfig.js?crc=328327953" onload="requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+  <script src='/static/scripts/jquery-1.8.3.min.js'></script>
+  <script type="text/javascript">
+    var delay= 5000;
+    $(document).ready(function(){
+      $("#u1445-4").delay(delay).fadeOut("slow");
+      $("#u1444-4").delay(delay).fadeOut("slow");
+    });
+  </script>
    </body>
 </html>
