@@ -93,14 +93,31 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 		     </div>
 		    </div>
 		    <div class="clearfix colelem shared_content" id="pu1344-4" data-content-guid="pu1344-4_content"><!-- group -->
-		     <div class="clearfix grpelem shared_content" id="u1344-4" data-content-guid="u1344-4_content"><!-- content -->
-		      <input type="reset" name="reset" style="color:#ffffff; background-color:#7f7f7f" value=" Reset"/>
+		     <div class="clearfix grpelem shared_content" id="u1344-4" data-content-guid="u1344-4_content" onmouseover="mouseOverReset(this)" onmouseout="mouseOutReset(this)"><!-- content -->
+		      <input type="reset" name="reset" style="color:#ffffff; background-color:#7f7f7f" value=" Reset" onmouseover="mouseOverReset(this)" onmouseout="mouseOutReset(this)"/>
 		     </div>
-		     <div class="clearfix grpelem shared_content" id="u1359-4" data-content-guid="u1359-4_content"><!-- content -->
-		      <input type="submit" name="update" style="color:#ffffff; background-color:#996600" value=" Upload"/>
+		     <div class="clearfix grpelem shared_content" id="u1359-4" data-content-guid="u1359-4_content" onmouseover="mouseOverSubmit(this)" onmouseout="mouseOutSubmit(this)"><!-- content -->
+		      <input type="submit" name="update" style="color:#ffffff; background-color:#996600" value=" Upload" onmouseover="mouseOverSubmit(this)" onmouseout="mouseOutSubmit(this)"/>
 		     </div>
 		    </div>
 			</form>
+    <script>
+      function mouseOverSubmit(pElement){
+        pElement.style.backgroundColor='#000000';
+        return true;
+      }
+      function mouseOutSubmit(pElement){
+        pElement.style.backgroundColor='#996601';
+        return true;
+      }
+      function mouseOverReset(pElement){
+        pElement.style.backgroundColor='#000000';
+        return true;
+      }
+      function mouseOutReset(pElement){
+        pElement.style.backgroundColor='#7f7f7f';
+      }
+    </script>
     <div class="dddd-de clearfix colelem shared_content" id="u1370-5" data-content-guid="u1370-5_content"><!-- content -->
      <p><a class="nonblock" href="http://www.dddd.de" target="_blank"><span id="u1370">© Design by Diana Ninov | www.dddd.de</span></a></p>
     </div>
