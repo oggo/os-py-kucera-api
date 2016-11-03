@@ -1,0 +1,22 @@
+
+  <script type="text/JavaScript">
+		$(document).ready(function(){
+    	console.log("DEBUG: documetn.ready - start");
+      $.ajax({
+	      url: "http://python-kucera.rhcloud.com/api/article/body/getAll",  
+	      dataType:'JSON',
+	      success:function(data){
+	        console.log("DEBUG: the data is: " + JSON.stringify(data));
+	        //iterate over the data and put the data into the html elements by id
+	        $.each(data.articles, function(i, article) {
+	          console.log("DEBUG: searching element nr." + i + ", htmlId is: " + article.htmlId)
+	          //TODO get the element and in case of error put default value
+	          $("#" + article.htmlId).html(article.body.replace(/\"/g, '"'))
+	        });
+	      },
+	      error:function(xhr){
+	        console.log("Error occured! status: " + xhr.status + ", text: " + xhr.statusText);
+	      }
+			});
+		});
+  </script>
