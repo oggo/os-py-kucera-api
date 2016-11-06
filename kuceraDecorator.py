@@ -28,12 +28,12 @@ class HtmlDecorator(object):
   def decorateAjaxRestCall(self, pFile2Decorate):
     print "DEBUG: file to decorate is: {}".format(pFile2Decorate)
     fileText = open(pFile2Decorate).read()
-    fileTuned = open(pFile2Decorate, 'w')
     text2Write= open(self.ajaxRestCallTemplate).read()
 
     #print "DEBUG: text is: {}".format(text2Write)
     match = self.htmlTagFinder.match(fileText)
     if None != match and None != match.group(1):
+      fileTuned = open(pFile2Decorate, 'w')
       print "DEBUG: group 1 is: {}".format(match.group(1))
       fileTuned.write(match.group(1))
       fileTuned.write("</body>")
