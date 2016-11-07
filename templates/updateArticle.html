@@ -16,13 +16,13 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
   
   <title>KUCERA-Edit-M</title>
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=3811540620"/>
-  <link rel="stylesheet" type="text/css" href="css/master_a-musters.css?crc=18395299"/>
-  <link rel="stylesheet" type="text/css" href="css/index.css?crc=4054036113" id="pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/site_global.css?crc=3811540620"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/master_a-musters.css?crc=18395299"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/index.css?crc=4054036113" id="pagesheet"/>
   <!-- IE-only CSS -->
   <!--[if lt IE 9]>
-  <link rel="stylesheet" type="text/css" href="css/nomq_preview_master_a-musters.css?crc=3824530138"/>
-  <link rel="stylesheet" type="text/css" href="css/nomq_index.css?crc=283113453" id="nomq_pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/nomq_preview_master_a-musters.css?crc=3824530138"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/nomq_index.css?crc=283113453" id="nomq_pagesheet"/>
   <![endif]-->
    </head>
  <body>
@@ -34,7 +34,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       <div class="browser_width" id="u565-bw">
        <div id="u565" class="shared_content" data-content-guid="u565_content"><!-- simple frame --></div>
       </div>
-      <a class="nonblock nontext clip_frame shared_content" id="u566" href="http://www.kucera.biz" data-content-guid="u566_content"><!-- image --><img class="block temp_no_img_src" id="u566_img" data-orig-src="images/kucera_logo_4c_wei%c3%9f_kl.png?crc=251882098" alt="" width="99" height="57" src="images/blank.gif?crc=4208392903"/></a>
+      <a class="nonblock nontext clip_frame shared_content" id="u566" href="http://www.kucera.biz" data-content-guid="u566_content"><!-- image --><img class="block temp_no_img_src" id="u566_img" data-orig-src="/static/images/kucera_logo_4c_wei%c3%9f_kl.png?crc=251882098" alt="" width="99" height="57" src="/static/images/blank.gif?crc=4208392903"/></a>
      </div>
      <div class="clearfix colelem shared_content" id="u178-4" data-content-guid="u178-4_content"><!-- content -->
       <p>Edit</p>
@@ -255,8 +255,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
   <script type="text/javascript">
    window.Muse.assets.check=function(){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var a={},b=function(){$('link[type="text/css"]').each(function(){var b=($(this).attr("href")||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);b&&b[1]&&b[2]&&(a[b[1]]=b[2])})},c=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),16);return 0},d=function(d){if("undefined"!==
 typeof $){b();$("body").append('<div class="version" style="display:none; width:1px; height:1px;"></div>');for(var f=$(".version"),j=0;j<Muse.assets.required.length;){var h=Muse.assets.required[j],i=h.match(/([\w\-\.]+)\.(\w+)$/),k=i&&i[1]?i[1]:null,i=i&&i[2]?i[2]:null;switch(i.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.addClass(k);var i=c(f.css("color")),l=c(f.css("background-color"));i!=0||l!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof a[h]&&(i!=
-a[h]>>>24||l!=(a[h]&16777215))&&Muse.assets.outOfDate.push(h)):j++;f.removeClass(k);break;case "js":k.match(/^jquery-[\d\.]+/gi)&&typeof $!="undefined"?Muse.assets.required.splice(j,1):j++;break;default:throw Error("Unsupported file type: "+i);}}f.remove()}if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="Einige der Dateien auf dem Server fehlen oder sind ungültig. Löschen Sie den Browser-Cache und versuchen Sie es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an den Autor der Website.",d&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),d&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),
-alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?setTimeout(function(){d(!0)},5E3):d()}};
+a[h]>>>24||l!=(a[h]&16777215))&&Muse.assets.outOfDate.push(h)):j++;f.removeClass(k);break;case "js":k.match(/^jquery-[\d\.]+/gi)&&typeof $!="undefined"?Muse.assets.required.splice(j,1):j++;break;default:throw Error("Unsupported file type: "+i);}}f.remove()}/*if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="Einige der Dateien auf dem Server fehlen oder sind ungültig. Löschen Sie den Browser-Cache und versuchen Sie es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an den Autor der Website.",d&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),d&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),
+alert(f)*/};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?setTimeout(function(){d(!0)},5E3):d()}};
 var muse_init=function(){require.config({baseUrl:"/static"});require(["museutils","whatinput","jquery.watch","jquery.museresponsive"],function(){$(document).ready(function(){try{
 window.Muse.assets.check();/* body */
 Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
