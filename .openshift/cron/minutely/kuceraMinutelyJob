@@ -1,0 +1,4 @@
+#!/bin/bash
+#minutely job. currently not used.
+#date >> ${OPENSHIFT_PYTHON_LOG_DIR}/testCronMin.log
+
