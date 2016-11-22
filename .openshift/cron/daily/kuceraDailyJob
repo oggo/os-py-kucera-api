@@ -8,7 +8,7 @@ DUMP_EXT="dmp"
 echo "dumping: "${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
 
 #dump the mysql python schema
-mysqldump --skip-lock-tables -h $OPENSHIFT_MYSQL_DB_HOST -P ${OPENSHIFT_MYSQL_DB_PORT:-3306} -u ${OPENSHIFT_MYSQL_DB_USERNAME:-'admin'}  --password="$OPENSHIFT_MYSQL_DB_PASSWORD" python > ${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
+mysqldump --skip-lock-tables -h $OPENSHIFT_MYSQL_DB_HOST -P ${OPENSHIFT_MYSQL_DB_PORT:-3306} -u ${OPENSHIFT_MYSQL_DB_USERNAME:-'admin'}  --password="$OPENSHIFT_MYSQL_DB_PASSWORD" python >> ${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
 
 #zip the dumps 
 find ~/app-root/data/backup -regex 'mysqlPython-[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9].dmp' -type f -exec gzip "{}" ";"
