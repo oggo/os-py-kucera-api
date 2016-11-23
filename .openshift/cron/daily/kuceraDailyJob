@@ -6,14 +6,22 @@ DUMP_DIR=${OPENSHIFT_DATA_DIR}"backups/"
 DUMP_FILE_NAME=${DUMP_DIR}"mysqlPython"
 DUMP_DATE=`date +%Y-%m-%d`
 DUMP_EXT="dmp"
-echo "dumping: "${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
+DUMP_FULL_FILE_NAME=${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
+#TODO: REMOVE ME: only for test reason set on 5 days
+PURGE_DAYS=5
 
+#delete, if dump already exists
+echo "INFO: will try to delete: "${DUMP_FULL_FILE_NAME}
+rm ${DUMP_FULL_FILE_NAME}
 #dump the mysql python schema
-mysqldump --skip-lock-tables -h $OPENSHIFT_MYSQL_DB_HOST -P ${OPENSHIFT_MYSQL_DB_PORT:-3306} -u ${OPENSHIFT_MYSQL_DB_USERNAME:-'admin'}  --password="$OPENSHIFT_MYSQL_DB_PASSWORD" python >> ${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
+echo "INFO: will dump into: "${DUMP_FULL_FILE_NAME}
+mysqldump --skip-lock-tables -h $OPENSHIFT_MYSQL_DB_HOST -P ${OPENSHIFT_MYSQL_DB_PORT:-3306} -u ${OPENSHIFT_MYSQL_DB_USERNAME:-'admin'}  --password="$OPENSHIFT_MYSQL_DB_PASSWORD" python >> ${DUMP_FULL_FILE_NAME}
 
-#zip the dumps 
-find $DUMP_DIR -regex 'mysqlPython-[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9].dmp' -type f -exec gzip "{}" ";"
+#zip the dumps
+echo "INFO: will gzip: .*"${DUMP_FILE_NAME}"-[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9].dmp"
+find $DUMP_DIR -regex ".*"${DUMP_FILE_NAME}"-[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9].dmp" -type f -exec gzip "{}" ";"
 
 #delete old dumps
-find $DUMP_DIR -mtime 30 -type f -exec rm -f "{}" ";"
+echo "INFO: will delete files older than "${PURGE_DAYS}" day(s):"
+find $DUMP_DIR -mtime ${PURGE_DAYS} -type f -exec rm -f "{}" ";"
 
