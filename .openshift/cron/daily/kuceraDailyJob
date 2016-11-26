@@ -22,6 +22,6 @@ echo "INFO: will gzip: .*"${DUMP_FILE_NAME}"-[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[
 find $DUMP_DIR -regex ".*"${DUMP_FILE_NAME}"-[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9].dmp" -type f -exec gzip "{}" ";"
 
 #delete old dumps
-echo "INFO: will delete files older than "${PURGE_DAYS}" day(s):"
+echo "INFO: will delete ALL files older than "${PURGE_DAYS}" day(s):"
 find $DUMP_DIR -mtime ${PURGE_DAYS} -type f -exec rm -f "{}" ";"
 
