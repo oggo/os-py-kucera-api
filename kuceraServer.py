@@ -9,12 +9,16 @@ import json
 from datetime import datetime
 from flask import Flask, flash, render_template, redirect, request, Response
 from flask_sqlalchemy import SQLAlchemy
+from flask_basicauth import BasicAuth
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/python'
+app.config['BASIC_AUTH_USERNAME'] = 'kucera'
+app.config['BASIC_AUTH_PASSWORD'] = 'kucera'
 db= SQLAlchemy(app)
+basicAuth= BasicAuth(app)
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -40,6 +44,8 @@ def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
   headers['Access-Control-Allow-Origin'] = '*'
+  #TODO: shrink the number of the sites having access to the API functions
+  #headers['Access-Control-Allow-Origin'] = 'dddd.de'
   return resp
 
 #get the current date time as string
@@ -95,6 +101,7 @@ def updateArticle():
   return render_template("updateArticle.html", article=article)
 
 @app.route('/api/article/deleteById/<int:pId>')
+@basicAuth.required
 def deleteArticleById(pId):
   print "INFO: {}: api/article/article/deleteById/{} function called!".format(__getDateTimeAsString(), pId)
   # show the post with the given id, the id is an integer
