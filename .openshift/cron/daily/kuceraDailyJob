@@ -1,14 +1,18 @@
 #!/bin/bash
-#date >> ${OPENSHIFT_PYTHON_LOG_DIR}/testCronMin.log
-#echo "hello from the daily test cron job" >> ${OPENSHIFT_PYTHON_LOG_DIR}/testCronMin.log
 
 DUMP_DIR=${OPENSHIFT_DATA_DIR}"backups/"
 DUMP_FILE_NAME=${DUMP_DIR}"mysqlPython"
 DUMP_DATE=`date +%Y-%m-%d`
 DUMP_EXT="dmp"
 DUMP_FULL_FILE_NAME=${DUMP_FILE_NAME}"-"${DUMP_DATE}"."${DUMP_EXT}
-#TODO: REMOVE ME: only for test reason set on 5 days
-PURGE_DAYS=5
+PURGE_DAYS=100
+
+echo "starting the daily backup with the following parameters: "
+echo "DUMP_DIR="${DUMP_DIR}
+echo "DUMP_FILE_NAME="${DUMP_FILE_NAME}
+echo "DUMP_DATE="${DUMP_DATE}
+echo "DUMP_EXT="${DUMP_EXT}
+echo "PURGE_DAYS="${PURGE_DAYS}
 
 #delete, if dump already exists
 echo "INFO: will try to delete: "${DUMP_FULL_FILE_NAME}
