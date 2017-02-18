@@ -13,8 +13,8 @@ from flask_basicauth import BasicAuth
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/python'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:e6kobe6ko@localhost/python'
 app.config['BASIC_AUTH_USERNAME'] = 'kucera'
 app.config['BASIC_AUTH_PASSWORD'] = 'kucera'
 db= SQLAlchemy(app)
@@ -113,7 +113,8 @@ def deleteArticleById(pId):
 def viewAllArticle():
   print "INFO: {}: api/article/viewAll function called!".format(__getDateTimeAsString())
   '''Lists all the articles'''
-  allArticle= Article.query.all()
+  #allArticle= Article.query.all()
+  allArticle= Article.query.order_by(Article.id)
   #print "DEBUG: allArticle size: {}".format(len(allArticle))
   return render_template("viewAllArticle.html", allArticle=allArticle)
 

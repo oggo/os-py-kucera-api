@@ -1,8 +1,7 @@
-test! article[0].title: {{allArticle[0].title}}
-<br/>
-all article: 
+<h3>list of all articles:</h3>
 {% for article in allArticle %}
-    <p>id: {{article.id}} | title: {{article.title}} | htmlId: {{article.htmlId}} | <a href="/api/article/findForUpdateFull/{{article.id}}">update</a> | <a href="/api/article/deleteById/{{article.id}}">delete</a></p>
-    <br/>
+    <h4>id: {{article.id}} | title: {{article.title}} | htmlId: {{article.htmlId}} | <a href="/api/article/findForUpdateFull/{{article.id}}">update</a> | <a href="/api/article/deleteById/{{article.id}}">delete</a></h4>
+    <h4>body:</h4> 
     <div>{{article.body}}</div>
+    <br/><br/>
 {% endfor %}
