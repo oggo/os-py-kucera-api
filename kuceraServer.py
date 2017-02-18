@@ -13,8 +13,8 @@ from flask_basicauth import BasicAuth
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:e6kobe6ko@localhost/python'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:<put the right one>@localhost/python'
 app.config['BASIC_AUTH_USERNAME'] = 'kucera'
 app.config['BASIC_AUTH_PASSWORD'] = 'kucera'
 db= SQLAlchemy(app)
