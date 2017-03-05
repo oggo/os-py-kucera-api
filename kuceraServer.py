@@ -6,21 +6,53 @@
 
 import sys
 import json
+from functools import wraps
 from datetime import datetime
 from flask import Flask, flash, render_template, redirect, request, Response
 from flask_sqlalchemy import SQLAlchemy
-from flask_basicauth import BasicAuth
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:<put the right one>@localhost/python'
-app.config['BASIC_AUTH_USERNAME'] = 'kucera'
-app.config['BASIC_AUTH_PASSWORD'] = 'kucera'
 db= SQLAlchemy(app)
-basicAuth= BasicAuth(app)
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
+users = {
+    "kucera": "kucera",
+    "admin": "dianka"
+}
+
+def checkAuth(pUsername, pPwd):
+  """This function is called to check if a username / password combination is valid."""
+  if pUsername in users:
+    return pPwd == users.get(pUsername)
+
+  return False
+
+
+def authenticate(pReason):
+    """Sends a 401 response that enables basic auth"""
+    return Response(
+    'Could not verify your access level for that URL.\n'
+    , 401,
+    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requiresAuth(pUsername=None):
+  def decorator(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+      auth = request.authorization
+      if not auth:
+        return authenticate('You have to login')
+      if None != pUsername and auth.username != pUsername:
+        return authenticate('You have to login with proper user')
+      if not checkAuth(auth.username, auth.password):
+        return authenticate('You have to login with proper credentials')
+      return f(*args, **kwargs)
+    return decorated
+  return decorator
 
 #Models
 class Article(db.Model):
@@ -55,6 +87,7 @@ def __getDateTimeAsString():
 #Controllers
 #Admin
 @app.route("/api/article/create", methods=["GET", "POST"])
+@requiresAuth('admin')
 def createArticle():
   if request.method == "GET":
     print "INFO: {}: api/article/create GET function called!".format(__getDateTimeAsString())
@@ -73,6 +106,7 @@ def createArticle():
     return redirect("/")
 
 @app.route("/api/article/findForUpdate/<int:pId>")
+@requiresAuth()
 def findArticleForUpdate(pId):
   print "INFO: {}: api/article/findForUpdate/{} function called!".format(__getDateTimeAsString(), pId)
   article= Article.query.get(pId)
@@ -80,6 +114,7 @@ def findArticleForUpdate(pId):
   return render_template("updateArticle.html", article=article)
 
 @app.route("/api/article/findForUpdateFull/<int:pId>")
+@requiresAuth('admin')
 def findArticleForUpdateFull(pId):
   print "INFO: {}: api/article/findForUpdateFull/{} function called!".format(__getDateTimeAsString(), pId)
   article= Article.query.get(pId)
@@ -87,6 +122,7 @@ def findArticleForUpdateFull(pId):
   return render_template("updateArticleFull.html", article=article)
 
 @app.route("/api/article/update", methods=["GET", "POST"])
+@requiresAuth()
 def updateArticle():
   print "INFO: {}: api/article/update function called!".format(__getDateTimeAsString())
   localId= request.form["id"]
@@ -101,7 +137,7 @@ def updateArticle():
   return render_template("updateArticle.html", article=article)
 
 @app.route('/api/article/deleteById/<int:pId>')
-@basicAuth.required
+@requiresAuth('admin')
 def deleteArticleById(pId):
   print "INFO: {}: api/article/article/deleteById/{} function called!".format(__getDateTimeAsString(), pId)
   # show the post with the given id, the id is an integer
@@ -110,6 +146,7 @@ def deleteArticleById(pId):
   return redirect("/")
 
 @app.route("/api/article/viewAll", methods=['GET'])
+@requiresAuth('admin')
 def viewAllArticle():
   print "INFO: {}: api/article/viewAll function called!".format(__getDateTimeAsString())
   '''Lists all the articles'''
@@ -119,6 +156,7 @@ def viewAllArticle():
   return render_template("viewAllArticle.html", allArticle=allArticle)
 
 @app.route('/')
+@requiresAuth('admin')
 def home():
   #return 'Hello, World!'
   return render_template("home.html")
@@ -171,18 +209,13 @@ def findArticleBodyByHtmlId(pHtmlId):
 @app.route('/api/article/body/getAll')
 def getAllArticleBody():
   print "INFO: {}: api/article/body/getAll function called!".format(__getDateTimeAsString())
-  # show the post with the given id, the id is an integer
   allArticle= Article.query
   resp= "{\"articles\" : ["
-  #print "DEBUG: resp is: {}".format(resp)
   if allArticle:
     for article in allArticle:
-      #print "DEBUG: current article is: {}".format(str(article))
       resp+= "{\"htmlId\" : \"%s\", \"body\" : \"%s\"}, " % (article.htmlId, article.body)
-      #print "DEBUG: resp is: {}".format(resp)
 
     resp= resp[:-2] + "]}"
-    #print "DEBUG: resp will be: %s" % (str(resp))
     return __getResponse(resp, 200)
   else:
     return Response("Not found", status=404)
