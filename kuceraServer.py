@@ -13,8 +13,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:<put the right one>@localhost/python'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:e6kobe6ko@localhost/python'
 db= SQLAlchemy(app)
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -75,7 +76,7 @@ class Article(db.Model):
 def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
-  headers['Access-Control-Allow-Origin'] = '*'
+  headers['Access-Control-Allow-Origin'] = 'dddd.de;kucera.biz'
   #TODO: shrink the number of the sites having access to the API functions
   #headers['Access-Control-Allow-Origin'] = 'dddd.de'
   return resp
@@ -160,6 +161,12 @@ def viewAllArticle():
 def home():
   #return 'Hello, World!'
   return render_template("home.html")
+
+@app.route('/test')
+@requiresAuth('admin')
+def test():
+  #return 'Hello, World!'
+  return render_template("test.html")
 
 #API
 @app.route('/api/article/title/findById/<int:pId>')

@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <!--select id="people"></select-->
+    <br/>
+    textarea with id=id1
+    <br/>
+    <textarea id="id1"></textarea>
+    <br/>
+    textarea with id=id2
+    <br/>
+    <textarea id="id2"></textarea>
+    <br/>
+    textarea with id=id3
+    <br/>
+    <textarea id="id3"></textarea>
+    <br/>
+    textarea with id=id4
+    <br/>
+    <textarea id="id4"></textarea>
+    <br/>
+    div with id=id6
+    <br/>
+    <div id="id6">test id6: </div>
+    <br/>
+    div with id=tqId
+    <br/>
+    <div id="tqId">test tqId: </div>
+  </body>
+  <script type="text/JavaScript">
+		$(document).ready(function(){
+			console.log("DEBUG: documetn.ready");
+      $.ajax({
+      	//url: "http://127.0.0.1:5000/api/article/body/getAll",
+      	//url: "http://localhost:5000/api/article/body/getAll",
+        //url: "http://geekline.org/kucera/api/article/body/getAll",
+        url: "http://python-kucera.rhcloud.com/api/article/body/getAll",
+        dataType:'JSON',
+        success:function(data){
+        	console.log("DEBUG: the data is: " + JSON.stringify(data));
+          //iterate over the data and put the data into the html elements by id
+          $.each(data.articles, function(i, article) {
+          	console.log("DEBUG: searching element nr." + i + ", htmlId is: " + article.htmlId)
+            //TODO get the element and in case of error put default value
+            $("#" + article.htmlId).html(article.body.replace(/\"/g, '"'))                          
+          });
+        },
+        error:function(xhr){
+        	console.log("Error occured! status: " + xhr.status + ", text: " + xhr.statusText);
+				}
+      });
+    });
+  </script>
+</html>
