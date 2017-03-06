@@ -75,8 +75,8 @@ class Article(db.Model):
 def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
-  #headers['Access-Control-Allow-Origin'] = '*'
-  headers['Access-Control-Allow-Origin']= 'http://kuzera.biz, http://www.kuzera.biz'
+  headers['Access-Control-Allow-Origin'] = '*'
+  #headers['Access-Control-Allow-Origin']= 'http://kuzera.biz, http://www.kuzera.biz'
   #headers.append('Access-Control-Allow-Origin', 'http://www.kuzera.biz')
   #TODO: shrink the number of the sites having access to the API functions
   #headers['Access-Control-Allow-Origin'] = 'dddd.de'
