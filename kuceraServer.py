@@ -76,10 +76,10 @@ def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
   #headers['Access-Control-Allow-Origin'] = '*'
-  headers['Access-Control-Allow-Origin'] = '*kucera.biz'
+  #headers.add('Access-Control-Allow-Origin', 'http://www.kucera.biz')
+  #headers['Access-Control-Allow-Origin'] = '*kucera.biz'
   #headers.extend([("Access-Control-Allow-Origin", orig) for orig in ['http://kucera.biz', 'http://www.kucera.biz', \
   #                                                                   'http://dddd.de', 'http://geekline.de']])
-  #headers.add('Access-Control-Allow-Origin', 'http://www.kucera.biz')
   #headers.add('Access-Control-Allow-Origin', 'http://dddd.de')
   #headers.extend('Access-Control-Allow-Origin', 'http://geekline.org')
   #headers['Access-Control-Allow-Origin']= 'http://kuzera.biz, http://www.kuzera.biz'
