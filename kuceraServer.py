@@ -76,7 +76,7 @@ def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
   print "DEBUG: request.path is: {}".format(request.path)
-  if request.path in ['http://kucera.biz', 'http://www.kucera.biz', 'www.dddd.de']:
+  if request.path[:11] in ['http://kucera.biz', 'http://www.kucera.biz', 'www.dddd.de']:
     headers['Access-Control-Allow-Origin'] = '*'
   else:
     headers['Access-Control-Allow-Origin'] = 'http://kucera.biz'
