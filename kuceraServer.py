@@ -75,7 +75,7 @@ class Article(db.Model):
 def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
-  print "DEBUG: request.path is: {}".format(request.path)
+  print "DEBUG: request.url_root is: {}".format(request.url_root)
   headers['Access-Control-Allow-Origin'] = '*'
 #   if request.path[:11] in ['http://kucera.biz', 'http://www.kucera.biz', 'www.dddd.de']:
 #     headers['Access-Control-Allow-Origin'] = '*'
