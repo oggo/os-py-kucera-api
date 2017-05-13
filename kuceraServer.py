@@ -76,6 +76,7 @@ def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
   print "DEBUG: request.environ['HTTP_ORIGIN'] is: {}".format(request.environ['HTTP_ORIGIN'])
+  print "DEBUG: request.http_origin is: {}".format(request.http_origin)
 #   if request.http_origin in ['http://kucera.biz', 'http://www.kucera.biz', 'http://www.dddd.de', 'http://dddd.de']:
 #     headers['Access-Control-Allow-Origin'] = '*'
 #     print "DEBUG: request.http_origin is IN: ".format(request.http_origin)
