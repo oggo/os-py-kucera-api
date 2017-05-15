@@ -76,15 +76,15 @@ def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
   print "DEBUG: request.environ['HTTP_ORIGIN'] is: {}".format(request.environ['HTTP_ORIGIN'])
-  print "DEBUG: request.http_origin is: {}".format(request.http_origin)
-#   if request.http_origin in ['http://kucera.biz', 'http://www.kucera.biz', 'http://www.dddd.de', 'http://dddd.de']:
-#     headers['Access-Control-Allow-Origin'] = '*'
-#     print "DEBUG: request.http_origin is IN: ".format(request.http_origin)
-#   else:
-#     headers['Access-Control-Allow-Origin'] = '*'
-#     print "DEBUG: request.http_origin is OUT: ".format(request.http_origin)
+  #print "DEBUG: request.http_origin is: {}".format(request.http_origin)
+  if request.environ['HTTP_ORIGIN'] in ['http://kucera.biz', 'http://www.kucera.biz', 'http://www.dddd.de', 'http://dddd.de']:
+    headers['Access-Control-Allow-Origin'] = '*'
+    print "DEBUG: request.environ['HTTP_ORIGIN'] is IN: ".format(request.environ['HTTP_ORIGIN'])
+  else:
+    headers['Access-Control-Allow-Origin'] = 'http://www.kucera.biz'
+    print "DEBUG: request.http_origin is OUT: ".format(request.environ['HTTP_ORIGIN'])
 
-  headers['Access-Control-Allow-Origin'] = '*'
+#  headers['Access-Control-Allow-Origin'] = '*'
 #   if request.path[:11] in ['http://kucera.biz', 'http://www.kucera.biz', 'www.dddd.de']:
 #     headers['Access-Control-Allow-Origin'] = '*'
 #   else:
