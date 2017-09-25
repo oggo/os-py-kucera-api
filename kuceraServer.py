@@ -14,7 +14,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
-mysqlUri= 'mysql://kucera_tech_1:taini4ka@{}:{}/kuceradb'.format(os.environ('MYSQL_SERVICE_HOST'), os.environ('MYSQL_SERVICE_PORT'))
+mysqlUri= 'mysql://kucera_tech_1:taini4ka@{}:{}/kuceradb'.format(os.environ.get('MYSQL_SERVICE_HOST'), os.environ.get('MYSQL_SERVICE_PORT'))
 app.config['SQLALCHEMY_DATABASE_URI'] = mysqlUri
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adminqpXQxYv:C5yZDCjUwZaU@127.8.30.2/python'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:<put the right one>@localhost/python'
