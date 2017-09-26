@@ -11,6 +11,8 @@ from functools import wraps
 from datetime import datetime
 from flask import Flask, flash, render_template, redirect, request, Response
 from flask_sqlalchemy import SQLAlchemy
+from _ast import TryExcept
+from symbol import try_stmt
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
@@ -177,7 +179,11 @@ def viewAllArticle():
   print "INFO: {}: api/article/viewAll function called!".format(__getDateTimeAsString())
   '''Lists all the articles'''
   #allArticle= Article.query.all()
-  allArticle= Article.query.order_by(Article.id)
+  allArticle= None
+  try:
+    allArticle= Article.query.order_by(Article.id)
+  except Exception as e:
+    print "ERROR: Error getting the Articles: {}".format(e)
   #print "DEBUG: allArticle size: {}".format(len(allArticle))
   return render_template("viewAllArticle.html", allArticle=allArticle)
 
