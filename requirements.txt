@@ -1,3 +1,4 @@
 Flask==0.10.1
 Flask-SQLAlchemy>=0.16
 gunicorn
+https://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip
