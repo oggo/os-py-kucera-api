@@ -16,7 +16,8 @@ from symbol import try_stmt
 
 app= Flask(__name__)
 app.secret_key = 'kucera_very_secret_key_zzzhghrtebrr87011'
-mysqlUri= 'mysql://kucera_tech_1:taini4ka@{}/kuceradb'.format(os.environ.get('MYSQL_SERVICE_HOST'))
+mysqlUri= 'mysql://oggo:taini4ka@oggo.mysql.pythonanywhere-services.com/oggo$kuceradb'
+#mysqlUri= 'mysql://kucera_tech_1:taini4ka@{}/kuceradb'.format(os.environ.get('MYSQL_SERVICE_HOST'))
 #mysqlUri= 'mysql://kucera_tech_1:taini4ka@{}:{}/kuceradb'.format(os.environ.get('MYSQL_SERVICE_HOST'), os.environ.get('MYSQL_SERVICE_PORT'))
 print 'DEBUG: mysqlUri is: {}'.format(mysqlUri)
 app.config['SQLALCHEMY_DATABASE_URI'] = mysqlUri
@@ -82,13 +83,19 @@ class Article(db.Model):
 def __getResponse(pBase, pStatus):
   resp= Response(pBase, pStatus)
   headers= resp.headers
-  print "DEBUG: request.environ['HTTP_ORIGIN'] is: {}".format(request.environ['HTTP_ORIGIN'])
+  try:
+    print "DEBUG: request.environ['HTTP_ORIGIN'] is: {}".format(request.environ['HTTP_ORIGIN'])
+  except:
+    print "DEBUG: http origin unknown!"
+    headers['Access-Control-Allow-Origin'] = 'https://www.kucera.biz'
+    return resp
+
   #print "DEBUG: request.http_origin is: {}".format(request.http_origin)
-  if request.environ['HTTP_ORIGIN'] in ['http://kucera.biz', 'http://www.kucera.biz', 'http://www.dddd.de', 'http://dddd.de', 'http://geekline.org']:
+  if request.environ['HTTP_ORIGIN'] in ['http://kucera.biz', 'http://www.kucera.biz', 'https://www.kucera.biz', 'http://www.dddd.de', 'https://www.dddd.de', 'http://dddd.de', 'http://geekline.org']:
     headers['Access-Control-Allow-Origin'] = '*'
     print "DEBUG: request.environ['HTTP_ORIGIN'] is IN: ".format(request.environ['HTTP_ORIGIN'])
   else:
-    headers['Access-Control-Allow-Origin'] = 'http://www.kucera.biz'
+    headers['Access-Control-Allow-Origin'] = 'https://www.kucera.biz'
     print "DEBUG: request.http_origin is OUT: ".format(request.environ['HTTP_ORIGIN'])
 
 #  headers['Access-Control-Allow-Origin'] = '*'
